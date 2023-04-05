@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500&family=Open+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./script.js" defer></script>
+    <title>WeatherGetr</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="logo"><i class="fa-solid fa-sun fa-xl"></i>WeathrGetr</h1>
+    </header>
+    <main>
+      <p class="attribution">
+        Images from <a href="https://unsplash.com/">Unsplash.com</a>
+      </p>
+      <div class="card">
+        <form id="search-form" class="search-form" action="">
+          <input
+            id="search-box"
+            class="search-box"
+            type="text"
+            placeholder="Search for a city"
+          />
+          <button id="search-btn" class="search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="error">Could not find city.</div>
+        <div class="loading">
+          <i class="fa-solid fa-gear fa-spin"></i>
+          &nbsp;Loading...
+        </div>
+        <div class="weather">
+          <h2 class="city"></h2>
+          <div class="flex">
+            <img class="icon" src="#" alt="" />
+            <h1 class="temp">Please refresh the page.</h1>
+          </div>
+          <div class="grid">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p class="description">No data found.</p>
+          </div>
+          <div class="grid">
+            <i class="fa-solid fa-droplet"></i>
+            <p class="humidity">No data found.</p>
+          </div>
+          <div class="grid">
+            <i class="fa-solid fa-wind"></i>
+            <p class="wind">No data found.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2023</p>
+      <p><a href="https://github.com/IceCoffee426">IceCoffee426</a></p>
+      <a href="https://github.com/IceCoffee426"
+        ><i class="fa-brands fa-github"></i
+      ></a>
+    </footer>
+  </body>
+</html>
