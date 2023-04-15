@@ -1,7 +1,7 @@
 # WeathrGetr
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/eef367fe-a20b-494b-b28b-fac78debacf1/deploy-status)](https://app.netlify.com/sites/icecoffee426-weathrgetr/deploys)
-[Live preview](https://icecoffee426-weathrgetr.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eef367fe-a20b-494b-b28b-fac78debacf1/deploy-status)](https://app.netlify.com/sites/shubsmastan-weathrgetr/deploys)<br /><br />
+[Live preview](https://shubsmastan-weathrgetr.netlify.app)
 
 ## Description
 
@@ -9,7 +9,7 @@ Get the weather in the city you are in or check the weather in a city you are go
 
 ## Author
 
-[@IceCoffee426](https://github.com/icecoffee426)
+[@shubsmastan](https://github.com/shubsmastan)
 
 ## Version History
 
