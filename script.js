@@ -1,17 +1,23 @@
 import WEATHER_API_KEY from "./config.js";
 
 const weather = {
-  fetchWeather: function (city) {
-    const key = WEATHER_API_KEY;
-    fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}`, {
-      mode: "cors",
-    })
-      .then((response) => response.json())
-      .then((weatherData) => this.displayWeather(weatherData))
-      .catch((err) => logError(err));
+  fetchWeather: async function (city) {
+    try {
+      const key = WEATHER_API_KEY;
+      const response = await fetch(
+        `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}`,
+        {
+          mode: "cors",
+        }
+      );
+      const weatherData = await response.json();
+      this.displayWeather(weatherData);
+    } catch (err) {
+      logError(err);
+    }
   },
 
-  displayWeather(data) {
+  displayWeather: function (data) {
     document.querySelector(".error").style.display = "none";
     document.querySelector(".loading").style.display = "none";
     document.querySelector(".weather").style.visibility = "visible";
@@ -38,6 +44,7 @@ const writeData = function (className, data) {
 const logError = function (err) {
   document.querySelector(".loading").style.display = "none";
   document.querySelector(".error").style.display = "block";
+  console.log(err);
 };
 
 document.getElementById("search-btn").addEventListener("click", function (e) {
@@ -46,7 +53,5 @@ document.getElementById("search-btn").addEventListener("click", function (e) {
 });
 
 window.onload = function () {
-  try {
-    weather.fetchWeather("London");
-  } catch (err) {}
+  weather.fetchWeather("London");
 };
