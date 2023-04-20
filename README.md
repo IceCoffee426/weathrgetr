@@ -1,18 +1,19 @@
 # WeathrGetr
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/eef367fe-a20b-494b-b28b-fac78debacf1/deploy-status)](https://app.netlify.com/sites/shubsmastan-weathrgetr/deploys)<br /><br />
 [Live preview](https://shubsmastan-weathrgetr.netlify.app)
 
 ## Description
 
-Get the weather in the city you are in or check the weather in a city you are going to visit. Created to learn how to use APIs and asynchronous JavaScript (as part of [The Odin Project](https://www.theodinproject.com)'s full stack JS course).
+Get the weather in your location or check the weather in a somewhere you'd like to visit. Created to learn how to use APIs and asynchronous JavaScript (as part of [The Jump](https://www.thejump.tech)'s full stack JS bootcamp).
 
 ## Author
 
-[@shubsmastan](https://github.com/shubsmastan)
+[@ShubsMastan](https://github.com/shubsmastan)
 
 ## Version History
 
+- 1.1 (20/04/2023)
+  - You can now get weather from your current location
 - 1.0 (05/04/2023)
   - Initial Release
 
@@ -24,6 +25,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 Inspiration and attributions
 
-- [The Odin Project's JavaScript course](https://www.theodinproject.com)
-- [Weather API](https://www.weatherapi.com)
+- [The Jump](https://www.thejump.tech)
+- [Weather API](https://www.weatherapi.com) for the weather data
+- [Unsplash](https://unsplash.com/) for the images
 - [Font Awesome](https://fontawesome.com) for the icons

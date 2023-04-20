@@ -1,11 +1,11 @@
 import axios from "axios";
 import "./style.css";
-import WEATHER_API_KEY from "./utils/config.js";
+import CODE from "./utils/config.js";
 
 const weather = {
   fetchWeather: async function (city) {
     try {
-      const key = WEATHER_API_KEY;
+      const key = CODE;
       const response = await axios.get(
         `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}`
       );
@@ -39,16 +39,28 @@ const weather = {
     element.innerHTML = data;
   },
 
-  logError: function (err) {
+  logError: function () {
     document.querySelector(".loading").style.display = "none";
     document.querySelector(".error").style.display = "block";
-    console.log(err);
   },
 };
 
-document.getElementById("search-btn").addEventListener("click", function (e) {
-  e.preventDefault();
-  weather.fetchWeather(document.getElementById("search-box").value);
-});
+window.onload = () => {
+  document.getElementById("search-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    weather.fetchWeather(document.getElementById("search-box").value);
+  });
 
-weather.fetchWeather("London");
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+      const location = `${latitude},${longitude}`;
+      weather.fetchWeather(location);
+      return;
+    },
+    () => {
+      alert("Location permission denied - showing weather in London.");
+      weather.fetchWeather("london");
+    }
+  );
+};
