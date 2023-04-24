@@ -39,11 +39,22 @@
             type="text"
             placeholder="Search location"
           />
-          <button id="search-btn" class="search-btn" type="submit">
+          <button
+            id="search-btn"
+            class="search-btn"
+            type="submit"
+            aria-label="Location search"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <button id="toggle-day" class="toggle-day">Today</button>
+        <button
+          id="toggle-day"
+          class="toggle-day"
+          aria-label="Toggle weather for today or tomorrow"
+        >
+          Today
+        </button>
         <div class="error">Could not get data.</div>
         <div class="loading">
           <i class="fa-solid fa-gear fa-spin"></i>
@@ -88,7 +99,12 @@
         </div>
         <span class="units">C</span>
         <label class="switch">
-          <input type="checkbox" id="toggle-units" tabindex="0" />
+          <input
+            type="checkbox"
+            id="toggle-units"
+            tabindex="0"
+            aria-label="Toggle Celcius or Fahrenheit"
+          />
           <span class="slider"></span>
         </label>
       </div>
@@ -97,9 +113,11 @@
     <footer>
       <p>© 2023</p>
       <p><a href="https://github.com/shubsmastan">ShubsMastan</a></p>
-      <a href="https://github.com/shubsmastan"
-        >&nbsp;<i class="fa-brands fa-github"></i
-      ></a>
+      <p>
+        <a id="gh-logo" href="https://github.com/shubsmastan"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </p>
     </footer>
   </body>
 </html>
