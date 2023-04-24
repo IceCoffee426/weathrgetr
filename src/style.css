@@ -222,7 +222,7 @@ input:checked + .slider:before {
 
 .weather {
   visibility: hidden;
-  transform: translateX(-150px);
+  transform: translateX(-180px);
   opacity: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
@@ -234,7 +234,7 @@ input:checked + .slider:before {
 
 .weather-tomorrow.inactive {
   visibility: hidden;
-  transform: translateX(150px);
+  transform: translateX(180px);
   opacity: 0;
 }
 
