@@ -13,7 +13,7 @@ Get the weather in your location or check the weather in a somewhere you'd like 
 ## Version History
 
 - 1.1 (20/04/2023)
-  - You can now get weather from your current location
+  - You can now get weather from your current location and toggle between units
 - 1.0 (05/04/2023)
   - Initial Release
 

@@ -89,12 +89,12 @@ const weather = {
     const toggle = document.getElementById("toggle-units");
     toggle.addEventListener("click", () => {
       if (toggle.checked) {
-        this.units = "F";
-        this.fetchWeather(this.currentLocation);
+        weather.units = "F";
+        weather.fetchWeather(weather.currentLocation);
         document.querySelector(".units").innerText = "F";
       } else {
-        this.units = "C";
-        this.fetchWeather(this.currentLocation);
+        weather.units = "C";
+        weather.fetchWeather(weather.currentLocation);
         document.querySelector(".units").innerText = "C";
       }
     });
@@ -104,12 +104,14 @@ const weather = {
     const searchBtn = document.getElementById("search-btn");
     searchBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      if (e.target.value === "") return;
-      weather.fetchWeather(document.getElementById("search-box").value);
+      const location = document.getElementById("search-box").value;
+      if (location === "") return;
+      weather.currentLocation = location;
+      weather.fetchWeather(location);
     });
   },
 
-  toggleDay() {
+  toggleDay: function () {
     const toggleDay = document.getElementById("toggle-day");
     toggleDay.addEventListener("click", function () {
       const today = document.querySelector(".weather");
