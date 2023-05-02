@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./style.css";
-import API_KEY from "./utils/key.js";
+import API_KEY from "./data/key.js";
 
 const weather = (function () {
   let units = localStorage.getItem("units")
