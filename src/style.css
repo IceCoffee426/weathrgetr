@@ -88,7 +88,7 @@ main {
   padding: 0.5rem 0.8rem;
   font-family: inherit;
   font-size: 1rem;
-  background-color: #f7f5eb;
+  background-color: #fff;
   border-radius: 20px;
   border: none;
   height: 40px;
@@ -100,7 +100,7 @@ main {
 }
 
 .search-btn {
-  background-color: #f7f5eb;
+  background-color: #fff;
   font-size: large;
   padding: 0.5rem;
   border: none;
@@ -128,7 +128,7 @@ main {
   background-color: #a0c3d2;
   position: absolute;
   right: 20px;
-  top: 110px;
+  top: 100px;
   z-index: 1;
   width: 100px;
 }
@@ -137,12 +137,22 @@ main {
   background-color: #a3d2a0;
 }
 
-.toggle-day:focus {
+.toggle-day:focus,
+.toggle-day:hover {
   outline: 1.5px solid #1e3050;
+}
+
+#tomorrow {
+  top: 150px;
+}
+
+#dayafter {
+  top: 200px;
 }
 
 .loading {
   font-size: 20px;
+  position: absolute;
 }
 
 .error {
@@ -230,48 +240,31 @@ input:checked + .slider:before {
 
 .weather {
   visibility: hidden;
-  transform: translateX(-180px);
   opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  width: 250px;
 }
 
 .weather.active {
-  transform: translateX(0);
   opacity: 1;
-}
-
-.weather-tomorrow.inactive {
-  visibility: hidden;
-  transform: translateX(180px);
-  opacity: 0;
-}
-
-.weather-tomorrow {
-  position: absolute;
-  top: 145px;
-  transform: translateX(0);
-  opacity: 1;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 #gh-logo:hover {
   text-decoration: none;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-  to {
-    opacity: 1;
-    translate: (0);
-  }
+#gh-logo:focus {
+  border: 1.5px solid #000;
 }
 
 .flex {
   display: flex;
   align-items: center;
+}
+
+.container {
+  width: 750px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .grid {

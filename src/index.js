@@ -17,7 +17,6 @@ const weather = (function () {
         return;
       },
       () => {
-        alert("Location permission denied - showing weather in London.");
         weather.fetchWeather("london");
       }
     );
@@ -29,22 +28,35 @@ const weather = (function () {
       const response = await axios.get(
         `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${loc}&days=3`
       );
-
       const { data } = response;
-      const { day } = response.data.forecast.forecastday[1];
-      weather.displayWeather(data, day);
+      const { forecastday } = response.data.forecast;
+      weather.displayWeather(data, forecastday);
     } catch (err) {
       weather.logError();
-      console.log(err);
     }
   };
 
-  const displayWeather = function (today, tomorr) {
+  const logError = function () {
+    document.querySelector(".loading").style.display = "none";
+    document.querySelector(".error").style.display = "block";
+  };
+
+  const writeData = function (className, data) {
+    const element = document.querySelector(className);
+    if (element.nodeName === "IMG") {
+      element.src = data;
+      return;
+    }
+    element.textContent = data;
+  };
+
+  const displayWeather = function (today, future) {
     document.querySelector(".error").style.display = "none";
     document.querySelector(".loading").style.display = "none";
     document.querySelector(".weather").style.visibility = "visible";
     document.body.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://source.unsplash.com/1600x900/?${today.location.name}")`;
+
     weather.writeData(".city", today.location.name);
     weather.writeData(
       ".temp",
@@ -63,28 +75,27 @@ const weather = (function () {
       ".temp-tomorrow",
       `${
         weather.units === "C"
-          ? tomorr.avgtemp_c + "\u00b0C"
-          : tomorr.avgtemp_f + "\u00b0F"
+          ? future[1].day.avgtemp_c + "\u00b0C"
+          : future[1].day.avgtemp_f + "\u00b0F"
       }`
     );
-    weather.writeData(".icon-tomorrow", tomorr.condition.icon);
-    weather.writeData(".description-tomorrow", tomorr.condition.text);
-    weather.writeData(".humidity-tomorrow", `${tomorr.avghumidity}%`);
-    weather.writeData(".wind-tomorrow", `${tomorr.maxwind_mph} mph`);
-  };
+    weather.writeData(".icon-tomorrow", future[1].day.condition.icon);
+    weather.writeData(".description-tomorrow", future[1].day.condition.text);
+    weather.writeData(".humidity-tomorrow", `${future[1].day.avghumidity}%`);
+    weather.writeData(".wind-tomorrow", `${future[1].day.maxwind_mph} mph`);
 
-  const writeData = function (className, data) {
-    const element = document.querySelector(className);
-    if (element.nodeName === "IMG") {
-      element.src = data;
-      return;
-    }
-    element.textContent = data;
-  };
-
-  const logError = function () {
-    document.querySelector(".loading").style.display = "none";
-    document.querySelector(".error").style.display = "block";
+    weather.writeData(
+      ".temp-dayafter",
+      `${
+        weather.units === "C"
+          ? future[2].day.avgtemp_c + "\u00b0C"
+          : future[2].day.avgtemp_f + "\u00b0F"
+      }`
+    );
+    weather.writeData(".icon-dayafter", future[2].day.condition.icon);
+    weather.writeData(".description-dayafter", future[2].day.condition.text);
+    weather.writeData(".humidity-dayafter", `${future[2].day.avghumidity}%`);
+    weather.writeData(".wind-dayafter", `${future[2].day.maxwind_mph} mph`);
   };
 
   const getUnits = function () {
@@ -120,17 +131,22 @@ const weather = (function () {
   };
 
   const toggleDay = function () {
-    const toggleDay = document.getElementById("toggle-day");
-    toggleDay.addEventListener("click", function () {
-      const today = document.querySelector(".weather");
-      const tomorr = document.querySelector(".weather-tomorrow");
-      document.querySelector(".weather-tomorrow").style.visibility = "visible";
-      today.classList.toggle("active");
-      tomorr.classList.toggle("inactive");
-      toggleDay.classList.toggle("active");
-      if (toggleDay.classList.contains("active"))
-        toggleDay.textContent = "Tomorrow";
-      else toggleDay.textContent = "Today";
+    const dayBtns = document.querySelectorAll(".toggle-day");
+    dayBtns.forEach((button, idx) => {
+      button.addEventListener("click", () => {
+        dayBtns.forEach((button) => {
+          button.classList.remove("active");
+        });
+        button.classList.add("active");
+        const weatherBox = document.querySelector(".container");
+        weatherBox.style.transform = `translateX(-${250 * idx}px)`;
+        weatherBox.querySelectorAll(".weather").forEach((box) => {
+          if (box.classList.contains(button.id)) {
+            box.style.visibility = "visible";
+            box.classList.add("active");
+          } else box.classList.remove("active");
+        });
+      });
     });
   };
 

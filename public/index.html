@@ -23,7 +23,7 @@
   </head>
   <body>
     <header>
-      <a href="#" class="logo-link">
+      <a href="#" class="logo-link" tabindex="-1">
         <h1 class="logo"><i class="fa-solid fa-sun fa-xl"></i>WeathrGetr</h1>
       </a>
     </header>
@@ -48,55 +48,89 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <button
-          id="toggle-day"
-          class="toggle-day"
-          aria-label="Toggle weather for today or tomorrow"
-        >
-          Today
-        </button>
         <div class="error">Could not get data.</div>
         <div class="loading">
           <i class="fa-solid fa-gear fa-spin"></i>
           &nbsp;Loading...
         </div>
         <h2 class="city"></h2>
-        <div class="weather active">
-          <div class="flex">
-            <img class="icon" src="#" alt="" />
-            <h1 class="temp">Please refresh the page.</h1>
+        <div class="flex container">
+          <div class="weather today active">
+            <div class="flex">
+              <img class="icon" src="#" alt="" />
+              <h1 class="temp">Please refresh the page.</h1>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-cloud-sun"></i>
+              <p class="description">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-droplet"></i>
+              <p class="humidity">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-wind"></i>
+              <p class="wind">No data found.</p>
+            </div>
           </div>
-          <div class="grid">
-            <i class="fa-solid fa-cloud-sun"></i>
-            <p class="description">No data found.</p>
+          <div class="weather tomorrow">
+            <div class="flex">
+              <img class="icon-tomorrow" src="#" alt="" />
+              <h1 class="temp-tomorrow">Please refresh the page.</h1>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-cloud-sun"></i>
+              <p class="description-tomorrow">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-droplet"></i>
+              <p class="humidity-tomorrow">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-wind"></i>
+              <p class="wind-tomorrow">No data found.</p>
+            </div>
           </div>
-          <div class="grid">
-            <i class="fa-solid fa-droplet"></i>
-            <p class="humidity">No data found.</p>
-          </div>
-          <div class="grid">
-            <i class="fa-solid fa-wind"></i>
-            <p class="wind">No data found.</p>
+          <div class="weather dayafter">
+            <div class="flex">
+              <img class="icon-dayafter" src="#" alt="" />
+              <h1 class="temp-dayafter">Please refresh the page.</h1>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-cloud-sun"></i>
+              <p class="description-dayafter">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-droplet"></i>
+              <p class="humidity-dayafter">No data found.</p>
+            </div>
+            <div class="grid">
+              <i class="fa-solid fa-wind"></i>
+              <p class="wind-dayafter">No data found.</p>
+            </div>
           </div>
         </div>
-        <div class="weather-tomorrow inactive">
-          <div class="flex">
-            <img class="icon-tomorrow" src="#" alt="" />
-            <h1 class="temp-tomorrow">Please refresh the page.</h1>
-          </div>
-          <div class="grid">
-            <i class="fa-solid fa-cloud-sun"></i>
-            <p class="description-tomorrow">No data found.</p>
-          </div>
-          <div class="grid">
-            <i class="fa-solid fa-droplet"></i>
-            <p class="humidity-tomorrow">No data found.</p>
-          </div>
-          <div class="grid">
-            <i class="fa-solid fa-wind"></i>
-            <p class="wind-tomorrow">No data found.</p>
-          </div>
-        </div>
+        <button
+          id="today"
+          class="toggle-day active"
+          aria-label="Check weather for today"
+        >
+          Today
+        </button>
+        <button
+          id="tomorrow"
+          class="toggle-day"
+          aria-label="Check weather for tomorrow"
+        >
+          Tomorrow
+        </button>
+        <button
+          id="dayafter"
+          class="toggle-day"
+          aria-label="Check weather for day after tomorrow"
+        >
+          Day after
+        </button>
         <span class="units">C</span>
         <label class="switch">
           <input
