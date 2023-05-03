@@ -4,7 +4,7 @@
 
 ## Description
 
-Get the weather in your location or check the weather in a somewhere you'd like to visit. Created to learn how to use APIs and asynchronous JavaScript (as part of [The Jump](https://www.thejump.tech)'s full stack JS bootcamp).
+Get the weather in your location or check the weather somewhere you'd like to visit. Created to learn how to use APIs and asynchronous JavaScript (as part of [The Jump](https://www.thejump.tech)'s full stack JS bootcamp).
 
 ## Author
 
@@ -12,9 +12,11 @@ Get the weather in your location or check the weather in a somewhere you'd like 
 
 ## Version History
 
-- 1.1 (20/04/2023)
+- 1.2.0 (03/05/2023)
+  - You can now get the weather for the next two days
+- 1.1.0 (20/04/2023)
   - You can now get weather from your current location and toggle between units
-- 1.0 (05/04/2023)
+- 1.0.0 (05/04/2023)
   - Initial Release
 
 ## License
