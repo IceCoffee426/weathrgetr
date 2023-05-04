@@ -164,6 +164,10 @@ const weather = (function () {
   };
 })();
 
+const dayAfterDate = new Date(Date.now() + 48 * 60 * 60);
+document.getElementById("dayafter").textContent =
+  dayAfterDate.toLocaleDateString();
+
 weather.getUnits();
 weather.search();
 weather.toggleDay();
