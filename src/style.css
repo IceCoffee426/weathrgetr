@@ -278,11 +278,8 @@ input:checked + .slider:before {
   padding-bottom: 10px;
 }
 
-.temp,
-.temp-tomorrow,
-.description,
-.description-tomorrow .humidity,
-.humidity-tomorrow {
+.grid p,
+.flex h1 {
   padding-bottom: 5px;
 }
 
