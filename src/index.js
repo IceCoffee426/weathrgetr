@@ -164,7 +164,7 @@ const weather = (function () {
   };
 })();
 
-const dayAfterDate = new Date(Date.now() + 48 * 60 * 60);
+const dayAfterDate = new Date(Date.now() + 48 * 60 * 60 * 1000);
 document.getElementById("dayafter").textContent =
   dayAfterDate.toLocaleDateString();
 
