@@ -14,7 +14,6 @@ const weather = (function () {
         const { latitude, longitude } = position.coords;
         weather.currentLocation = `${latitude},${longitude}`;
         weather.fetchWeather(weather.currentLocation);
-        return;
       },
       () => {
         weather.fetchWeather(weather.currentLocation);
@@ -45,7 +44,10 @@ const weather = (function () {
     document.body.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://source.unsplash.com/1600x900/?${today.location.name}")`;
 
-    weather.writeData(".location", today.location.name);
+    document.querySelector(".location").textContent = today.location.name;
+    document.querySelector(
+      ".country"
+    ).textContent = `${today.location.region}, ${today.location.country}`;
     weather.writeData(
       ".temp",
       `${
@@ -95,11 +97,6 @@ const weather = (function () {
     weather.writeData(".wind-dayafter", `${future[2].day.maxwind_mph} mph`);
   }
 
-  function logError() {
-    document.querySelector(".loading").style.display = "none";
-    document.querySelector(".error").style.display = "block";
-  }
-
   function writeData(className, data) {
     const element = document.querySelector(className);
     if (element.nodeName === "IMG") {
@@ -107,6 +104,11 @@ const weather = (function () {
       return;
     }
     element.textContent = data;
+  }
+
+  function logError() {
+    document.querySelector(".loading").style.display = "none";
+    document.querySelector(".error").style.display = "block";
   }
 
   function toggleUnits() {

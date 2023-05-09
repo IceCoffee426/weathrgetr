@@ -81,7 +81,7 @@ main {
   position: relative;
 }
 
-.search-form {
+.card-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,19 +312,19 @@ footer {
   .toggle-day {
     position: absolute;
     right: 20px;
-    top: 100px;
+    top: 175px;
     font-size: 1rem;
     width: 100px;
   }
 
   #tomorrow {
     right: 20px;
-    top: 150px;
+    top: 215px;
   }
 
   #dayafter {
     right: 20px;
-    top: 200px;
+    top: 255px;
   }
 
   .card {
