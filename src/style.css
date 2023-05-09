@@ -281,7 +281,12 @@ input:checked + .slider:before {
 }
 
 .location {
+  padding-bottom: 5px;
+}
+
+.country {
   padding-bottom: 10px;
+  font-size: 0.8rem;
 }
 
 .grid p,
@@ -312,19 +317,19 @@ footer {
   .toggle-day {
     position: absolute;
     right: 20px;
-    top: 175px;
+    top: 150px;
     font-size: 1rem;
     width: 100px;
   }
 
   #tomorrow {
     right: 20px;
-    top: 215px;
+    top: 200px;
   }
 
   #dayafter {
     right: 20px;
-    top: 255px;
+    top: 250px;
   }
 
   .card {
