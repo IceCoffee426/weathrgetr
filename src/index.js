@@ -3,10 +3,11 @@ import "./style.css";
 import API_KEY from "./data/key.js";
 
 const weather = (function () {
+  let active = "today";
+  let currentLocation = "london";
   let units = localStorage.getItem("units")
     ? localStorage.getItem("units")
     : "C";
-  let currentLocation = "london";
 
   function getLocation() {
     navigator.geolocation.getCurrentPosition(
@@ -40,7 +41,7 @@ const weather = (function () {
     document.querySelector(".loading").style.display = "none";
     document.querySelector(".buttons-container").style.display = "flex";
     document.querySelectorAll(".toggle-day").forEach((button) => {
-      button.id === "today"
+      button.id === active
         ? button.classList.add("active")
         : button.classList.remove("active");
     });
@@ -58,25 +59,22 @@ const weather = (function () {
 
     weatherContainer.innerHTML = writeData(
       data.forecast.forecastday[0].day,
-      "today",
-      true
+      "today"
     );
 
     weatherContainer.innerHTML += writeData(
       data.forecast.forecastday[1].day,
-      "tomorrow",
-      false
+      "tomorrow"
     );
 
     weatherContainer.innerHTML += writeData(
       data.forecast.forecastday[2].day,
-      "dayafter",
-      false
+      "dayafter"
     );
   }
 
-  function writeData(weatherObj, day, active) {
-    return `<div class="weather ${day} ${active === true ? "active" : ""}">
+  function writeData(weatherObj, day) {
+    return `<div class="weather ${day} ${active === day ? "active" : ""}">
             <div class="flex">
               <img class="icon" src="${weatherObj.condition.icon}" alt="" />
               <h1 class="temp">${
@@ -112,6 +110,7 @@ const weather = (function () {
       document.getElementById("toggle-units").disabled = true;
     });
     e.target.classList.add("active");
+    active = e.target.id;
     document.querySelectorAll(".weather").forEach((box) => {
       if (box.classList.contains(e.target.id)) {
         box.style.display = "block";
@@ -133,6 +132,7 @@ const weather = (function () {
     const location = document.getElementById("search-box").value;
     if (location === "") return;
     currentLocation = location;
+    active = "today";
     fetchWeather(location);
     document.getElementById("search-box").value = "";
   });
