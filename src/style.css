@@ -163,7 +163,7 @@ main {
   display: none;
   justify-content: center;
   gap: 10px;
-  padding-top: 10px;
+  padding-top: 30px;
   padding-bottom: 20px;
 }
 
@@ -241,7 +241,7 @@ input:checked + .slider:before {
   color: #eac7c7;
 }
 
-.flex.container {
+.weather-container {
   height: 145px;
   display: none;
 }
@@ -290,8 +290,9 @@ input:checked + .slider:before {
 }
 
 .grid p,
-.flex h1 {
-  padding-bottom: 5px;
+.flex h1,
+.icon {
+  padding-bottom: 10px;
 }
 
 footer {
@@ -309,7 +310,7 @@ footer {
   width: 100%;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 550px) {
   header {
     justify-content: center;
   }
