@@ -19,6 +19,9 @@ body {
     url("https://source.unsplash.com/1600x900/?london");
   background-size: cover;
   font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
@@ -27,17 +30,14 @@ header {
   height: 5rem;
   text-align: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-
-  width: 100%;
 }
 
 .logo {
   font-family: "Advent Pro", sans-serif;
   font-weight: 600;
   color: #1e3050;
-  padding-left: 10px;
 }
 
 .logo i {
@@ -64,7 +64,6 @@ a:focus {
 
 main {
   padding: 1.2rem;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,8 +104,6 @@ main {
   font-size: large;
   padding: 0.5rem;
   border: none;
-  border-radius: 3px;
-  margin-left: 0.5;
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -311,10 +308,6 @@ footer {
 }
 
 @media (min-width: 550px) {
-  header {
-    justify-content: center;
-  }
-
   .toggle-day {
     position: absolute;
     right: 20px;
@@ -344,12 +337,12 @@ footer {
 
 @media (min-height: 550px) {
   header {
-    position: fixed;
+    position: sticky;
     top: 0;
   }
 
   footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
   }
 }
